@@ -1,4 +1,6 @@
 // import React, { useState } from 'react';
+import logo from '../../img/logo.svg';
+import img from '../../img/Bread_Jam1.png';
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
@@ -12,16 +14,20 @@ export function Shuffler() {
 
 
   return (
-    <div>
-    {/* <span className={styles.value}>{shuffleSelector}</span> */}
-      <div className={styles.row}>
-        <button
-          className={styles.button}
-          onClick={() => dispatch(shuffle())}
-        >
-          Shuffle
-        </button>
+      <>
+      <button onClick={() => dispatch(shuffle())} className={styles.button}>
+        Shuffle
+      </button>
+      <div className={styles.cardGrid}>
+        {shuffleSelector.map((card) => (
+          <div className={styles.card} key={card.id}>
+            <div>
+              <img className="front" src={card.src} alt="card front" />
+              <img className="back" src={logo} alt="card back" />
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
+      </>
   );
 }

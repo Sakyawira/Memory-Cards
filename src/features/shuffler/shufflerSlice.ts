@@ -1,16 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
+import img1 from "../../img/Bread_Jam1.png";
+import img2 from "../../img/egg veggies.png";
+import img3 from "../../img/egg.png";
+import img4 from "../../img/Tuna_Sandwich1.png";
+import img5 from "../../img/Pancake.png";
+
 
 export interface CardState {
     value: any[]
 }
 
 const initialState: CardState = {
-    value: [{"src": "/img/Bread_Jam1.png"},
-    {"src": "/img/egg veggies.png"},
-    {"src": "/img/egg.png"},
-    {"src": "/img/Tuna_Sandwich1.png"},
-    {"src": "/img/Pancake.png"},],
+  value:[
+          {"src": img1},
+          {"src": img2},
+          {"src": img3},
+          {"src": img4},
+          {"src": img5},
+        ],
 };
   
 export const shuffleSlice = createSlice({
