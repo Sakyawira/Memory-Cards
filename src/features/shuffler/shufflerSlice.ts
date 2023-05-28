@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import img1 from "../../img/Bread_Jam1.png";
 import img2 from "../../img/egg veggies.png";
@@ -33,14 +33,21 @@ export const shuffleSlice = createSlice({
       // immutable state based off those changes
       state.value =  state.value.sort(() => Math.random() - 0.5).map((card: any) => 
       ({
-        ...card , id : Math.random()
+        ...card , id : Math.random(), isFlipped: false
+      }))
+      console.log(state.value)
+    },
+    flipCardWithId: (state, action: PayloadAction<number>) => {
+      state.value = state.value.map((card: any) => 
+      ({
+          ...card, isFlipped: card.id === action.payload ? !card.isFlipped : card.isFlipped
       }))
       console.log(state.value)
     },
   }
 });
 
-export const { shuffle } = shuffleSlice.actions;
+export const { shuffle, flipCardWithId } = shuffleSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
