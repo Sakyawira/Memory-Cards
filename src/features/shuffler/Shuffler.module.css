@@ -43,3 +43,21 @@ button {
     background: #c23866;
     color: #fff;
   }
+
+.card .front {
+    transform: rotateY(90deg);
+    position:  absolute;
+}
+
+.flipped .front {
+    transform: rotateY(0deg);
+}
+
+.card .back {
+    transform: rotateY(0deg);
+}
+
+.flipped .back {
+    transform: rotateY(90deg);
+    position:  absolute;
+}

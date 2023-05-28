@@ -14,9 +14,9 @@ export function Shuffler() {
       <div className={styles.cardGrid}>
         {shuffleSelector.map((card) => (
           <div className={styles.card} key={card.id}>
-            <div>
-              <img className="front" src={card.src} alt="card front" />
-              <img onClick={() => dispatch(flipCardWithId(card.id))} className="back" src={logo} alt="card back" />
+            <div className={card.isFlipped ? styles.flipped : ""}>
+              <img className={styles.front} src={card.src} alt="card front" />
+              <img  className={styles.back} onClick={() => dispatch(flipCardWithId(card.id))} src={logo} alt="card back" />
             </div>
           </div>
         ))}
