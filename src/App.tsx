@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 // import { Counter } from './features/counter/Counter';
 import { Shuffler } from './features/shuffler/Shuffler';
 import './App.css';
